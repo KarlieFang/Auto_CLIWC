@@ -26,7 +26,12 @@ def load_liwc(filename, word2vec, encoding='utf-8'):
             type2word[t] = type2word.get(t, [])
             type2word[t].append(tmp[0])
     return type2name, word2type, type2word
-
+#example:
+#line: 只 131 139
+#tmp: ['只', '131', '139'] 
+#tmp[0]: '只'
+#tmp[1:]: ['131', '139']
+#['里', '131', '138', '250', '252']
 
 def load_vectors(filename, encoding='utf-8'):
     vector_file = io.open(filename, 'r', encoding=encoding)
@@ -86,7 +91,7 @@ def load_hownet(filename, word2type, word2vectors, encoding='utf-8'):
     biggest = 40
     word2sememe_length = dict()
     for word in word2type:
-        word2word_semevec[word].append(word2vectors[word])
+        word2word_semevec[word].append(word2vectors[word]) #没有“只”这个key？ 哈 确实没有呢
         word2sememe_length[word] = 1
         if word in word2sememes:
             count = 0
