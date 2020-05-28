@@ -84,7 +84,7 @@ def load_hownet(filename, word2type, word2vectors, encoding='utf-8'):
         elif 'W_E=' in line and line[4:].strip() in word2type:
             word = line[4:].strip()
         elif 'DEF=' in line:
-            m = re_words.findall(line, 0)
+            m = re_words.findall(line, 0) #这儿两个argument什么意思？不是在line里找吗 0在这儿是啥意思哇
             word2sememes[word].update(m)
     word2sememes = dict(word2sememes)
     word2average_sememes = dict()
